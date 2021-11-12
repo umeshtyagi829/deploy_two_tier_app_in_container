@@ -4,18 +4,18 @@
     // initialize errors variable
         $errors = "";
 
-        #assignment - 1 credentials
-        #$servername = getenv("DB_HOST");
-        #$user = getenv("MYSQL_USER");
-        #$pass = getenv("MYSQL_PASSWORD");
-        #$database = getenv("MYSQL_DATABASE");
-
-        #assignment - 2 credentials
+        #$assignment - 1 credentials
         $servername = getenv("DB_HOST");
         $user = getenv("MYSQL_USER");
-        #$pass = getenv("MYSQL_PASSWORD_FILE");
-        $pass = shell_exec('cat /run/secrets/db_password');
+        $pass = getenv("MYSQL_PASSWORD");
         $database = getenv("MYSQL_DATABASE");
+
+        #assignment - 2 credentials
+        #$servername = getenv("DB_HOST");
+        #$user = getenv("MYSQL_USER");
+        #$pass = getenv("MYSQL_PASSWORD_FILE");
+        #$pass = shell_exec('cat /run/secrets/db_password');
+        #$database = getenv("MYSQL_DATABASE");
 
         #echo $servername;
         #echo $user;
@@ -54,7 +54,7 @@
 </head>
 <body>
         <div class="heading">
-                <h2 style="font-style: 'Hervetica';">ToDo List Application PHP and MySQL database</h2>
+                <h2 style="font-style: 'Hervetica';">ToDo (Updated) List Application PHP and MySQL database</h2>
         </div>
         <form method="post" action="index.php" class="input_form">
                 <input type="text" name="task" class="task_input">
