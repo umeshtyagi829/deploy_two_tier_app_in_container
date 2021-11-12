@@ -7,4 +7,4 @@ RUN apt-get update && apt-get upgrade -y
 
 RUN docker-php-ext-install mysqli && docker-php-ext-enable mysqli
 
-COPY code/ /var/www/html/
+COPY php/code/ /var/www/html/
