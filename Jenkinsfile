@@ -22,7 +22,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
-              sh 'main.sh'
+                sh 'chmod +x main.sh'
+                sh './main.sh'
             }
 
         }
