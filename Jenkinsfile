@@ -1,6 +1,9 @@
 pipeline {
     agent any
-    
+    environment {
+                MYSQL_CREDENTIALS     = credentials('MySQL_Container')
+                MYSQL_ROOT_PASSWORD   = credentials('mysql_root_password')
+            }
     stages {
         stage('GetCode') {
             steps {
@@ -10,7 +13,6 @@ pipeline {
 
         stage('Build') {
             steps {  
-         
                 sh 'sudo docker build -t mysql_by_jenkins -f mysql/Dockerfile .'
                 sh 'sudo docker build -t php_by_jenkins -f php/Dockerfile .'
             }
@@ -18,10 +20,6 @@ pipeline {
 
         stage('Deploy') {
             steps {
-            environment {
-                MYSQL_CREDENTIALS     = credentials('MySQL_Container')
-                MYSQL_ROOT_PASSWORD     = credentials('mysql_root_password')
-            }
                 sh 'chmod +x main.sh'
                 sh './main.sh'
             }
