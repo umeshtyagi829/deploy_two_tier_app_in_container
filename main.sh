@@ -1,11 +1,5 @@
 #!/bin/bash
 
-sudo docker stop mydb
-sudo docker rm mydb
-                
-sudo docker stop mywebapp
-sudo docker rm mywebapp
-
 sudo docker run -dp 3306:3306 --name mydb \
 -e MYSQL_USER=$MYSQL_CREDENTIALS_USR \
 -e MYSQL_DATABASE=todo \

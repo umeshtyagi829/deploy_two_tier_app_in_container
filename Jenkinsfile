@@ -20,6 +20,8 @@ pipeline {
 
         stage('Deploy') {
             steps {
+                sh 'sudo docker rm -f mydb || true'
+                sh 'sudo docker rm -f mywebapp || true'
                 sh 'chmod +x main.sh'
                 sh './main.sh'
             }
