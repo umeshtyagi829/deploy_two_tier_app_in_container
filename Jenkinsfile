@@ -5,7 +5,7 @@ pipeline {
                 MYSQL_ROOT_PASSWORD   = credentials('mysql_root_password')
             }
     stages {
-        stage('GetCode') {
+        stage('Checkout') {
             steps {
                 git 'https://github.com/umeshtyagi829/deploy_two_tier_app_in_container.git'
             }
